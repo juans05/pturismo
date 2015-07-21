@@ -22,13 +22,13 @@ public class PersonaServiceImpl implements PersonaService{
 	public PersonaBean getInformationPerfil(HttpSession session) {
 		PersonaBean personabean = new PersonaBean();
 		Persona persona = new Persona();		
-		Query q1 = em.createQuery("SELECT p FROM Persona p JOIN p.usuario u WHERE u.idUsuario = :idUsuario AND u.activo =:activo");
+		Query q1 = em.createQuery("SELECT p FROM Persona p JOIN p.usuario u WHERE u.idUsuario = :idUsuario AND u.estado =:estado");
 		q1.setParameter("idUsuario", Integer.parseInt(session.getAttribute("idUsuario").toString()));
-		q1.setParameter("activo", true);
+		q1.setParameter("estado", true);
 		persona = (Persona) q1.getSingleResult();
 		personabean.setNombre(persona.getNombre());
-		personabean.setApellidoPaterno(persona.getApellidoPaterno());
-		personabean.setApellidoMaterno(persona.getApellidoMaterno());
+		personabean.setApellido(persona.getApellido());
+		//personabean.setApellidoMaterno(persona.getApellidoMaterno());
 		personabean.setTelefono(persona.getTelefono());
 		personabean.setEmail(persona.getUsuario().getEmail());
 		return personabean;
@@ -39,14 +39,14 @@ public class PersonaServiceImpl implements PersonaService{
 		boolean resultado = false;
 		Persona personaX = new Persona();
 		try{
-			Query q1 = em.createQuery("SELECT p FROM Persona p JOIN p.usuario u WHERE u.idUsuario = :idUsuario AND u.activo =:activo");
+			Query q1 = em.createQuery("SELECT p FROM Persona p JOIN p.usuario u WHERE u.idUsuario = :idUsuario AND u.estado =:estado");
 			q1.setParameter("idUsuario", Integer.parseInt(session.getAttribute("idUsuario").toString()));
-			q1.setParameter("activo", true);
+			q1.setParameter("estado", true);
 			personaX = (Persona) q1.getSingleResult();			
 			Persona profileY = em.merge(personaX);
 			profileY.setNombre(perbean.getNombre());
-			profileY.setApellidoPaterno(perbean.getApellidoPaterno());
-			profileY.setApellidoMaterno(perbean.getApellidoMaterno());
+			profileY.setApellido(perbean.getApellido());
+			//profileY.setApellidoMaterno(perbean.getApellidoMaterno());
 			profileY.setTelefono(perbean.getTelefono());
 			Usuario usuarioY = em.merge(personaX.getUsuario());
 			usuarioY.setEmail(perbean.getEmail());		

@@ -986,7 +986,6 @@
 	</section>
 	
 	<%@ include file="/WEB-INF/jsp/componentes/booking.jsp" %>
-	
 	<%@ include file="/WEB-INF/jsp/componentes/footer-links.jsp" %>
 	<%@ include file="/WEB-INF/jsp/componentes/footer.jsp" %>
 	<%@ include file="/WEB-INF/jsp/componentes/listjs.jsp" %>

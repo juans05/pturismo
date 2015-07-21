@@ -1,5 +1,7 @@
 package com.pturismo.service;
 
+import java.sql.Timestamp;
+
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
@@ -13,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.pturismo.bean.PersonaBean;
 import com.pturismo.model.Persona;
 import com.pturismo.model.Usuario;
+import com.pturismo.util.DateUtil;
 
 @Service
 public class UsuarioServiceImpl implements UsuarioService{
@@ -25,11 +28,11 @@ public class UsuarioServiceImpl implements UsuarioService{
 	public boolean login(Usuario usu, HttpSession session) {
 		boolean resultado = false;
 		try{
-			Query q = em.createQuery("SELECT u FROM Usuario u WHERE u.email =:email AND u.password =:password AND u.activo =:activo");
+			Query q = em.createQuery("SELECT u FROM Usuario u WHERE u.email =:email AND u.password =:password AND u.estado =:estado");
 			q.setParameter("email", usu.getEmail());
 	    	//String md5 = DigestUtils.md5Hex(usu.getPassword());
 			q.setParameter("password", usu.getPassword());
-			q.setParameter("activo", true);
+			q.setParameter("estado", true);
 			
 			Usuario userResult = (Usuario) q.getSingleResult();
 			
@@ -52,12 +55,11 @@ public class UsuarioServiceImpl implements UsuarioService{
 		try{
 			usuario.setEmail(perbean.getEmail());
 			usuario.setPassword(perbean.getPassword());
-			usuario.setActivo(true);
+			usuario.setEstado("enabled");
+			usuario.setFechaCreacion(DateUtil.currentTimestamp());
 			em.persist(usuario);
 			persona.setUsuario(usuario);
 			persona.setNombre(perbean.getNombre());
-			persona.setApellidoPaterno(perbean.getApellidoPaterno());
-			persona.setApellidoMaterno(perbean.getApellidoMaterno());
 			persona.setTelefono(perbean.getTelefono());	
 			em.persist(persona);
 			resultado = true;

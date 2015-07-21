@@ -1,3 +1,6 @@
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!--===========================
 header
 ============================-->
@@ -61,50 +64,54 @@ Pop-up
 	<div class="popup-head">
     	Login to your account
     </div>
-	<form action="" method="post">
+	<form id="frmLogin" action="login" method="post" commandName="usuario" >
     	<div class="popups">
-        	<input type="text" placeholder="Your email address" />
+        	<input type="email" placeholder="Tu correco electrónico" />
             <span class="icon-envelope-alt"></span>
         </div>
         <div class="popups">
-        	<input type="text" placeholder="Password" />
+        	<input type="password" placeholder="Password" />
             <span class="icon-unlock"></span>
         </div>
-        <button type="submit">Login now</button>
+        <button type="submit">Iniciar Sesión</button>
     </form>
 </section>
 
 <section id="register" class="pop-out mfp-hide">
 	<div class="popup-head">
-    	CREATE NEW ACCOUNT
-    </div>
-	<form action="" method="post">
+    	CREAR NUEVA CUENTA
+    </div>	
+    
+	<form action="registro" method="post" commandName="personabean">
     	<div class="popups">
-        	<input type="text" placeholder="Your email address" />
+        	<input type="email" placeholder="Tu correo Electrónico" name="email" value="" required title="Complete un correo electrónico válido"/>
             <span class="icon-envelope-alt"></span>
         </div>
         <div class="popups">
-        	<input type="text" placeholder="Password" />
+        	<input type="password" placeholder="Password" name="password1" value="" required/>
             <span class="icon-unlock"></span>
         </div>
         <div class="popups">
-        	<input type="text" placeholder="Confirm password" />
+        	<input type="password" placeholder="Confirmar password" name="password" value="" required/>
             <span class="icon-unlock"></span>
         </div>
         <div class="popups">
-        	<input type="text" placeholder="Password" />
+        	<input type="text" placeholder="Nombre" name="nombre" value="" required title="Complete un nombre"/>
             <span class="icon-user"></span>
         </div>
+<!--         <div class="popups"> -->
+<!--         	<input type="text" placeholder="Your address" /> -->
+<!--             <span class="icon-home"></span> -->
+<!--         </div> -->
         <div class="popups">
-        	<input type="text" placeholder="Your address" />
-            <span class="icon-home"></span>
-        </div>
-        <div class="popups">
-        	<input type="text" placeholder="Your phone" />
+        	<input type="text" placeholder="Celular (Optional)" name="celular"/>
             <span class="icon-phone-sign"></span>
         </div>
-        <button type="submit">Register now</button>
-    </form>
+        <button type="submit">Crear cuenta</button>
+		<p>
+			<label class="error"><c:out value="${msg}" /></label>
+		</p>
+	</form>
 </section>
 
 <section id="explore" class="mfp-hide" >

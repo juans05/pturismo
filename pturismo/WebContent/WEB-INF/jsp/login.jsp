@@ -1,22 +1,16 @@
 <!DOCTYPE html>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<html>
-
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
 <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Pagina de Inicio</title>
-
-    <!-- Core CSS - Include with every page -->
-    <link href="styles/bootstrap.min.css" rel="stylesheet">
-    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
-
-    <!-- SB Admin CSS - Include with every page -->
-    <link href="styles/sb-admin.css" rel="stylesheet">
-
+	<title>PTurismo - Login</title>
+	<%@ include file="/WEB-INF/jsp/componentes/listcss.jsp" %>
 </head>
 <style>
 label.error {
@@ -29,6 +23,7 @@ label.error {
 </style>
 <body>
 
+	<%@ include file="/WEB-INF/jsp/componentes/header.jsp" %>
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
@@ -37,7 +32,7 @@ label.error {
                         <h3 class="panel-title">Please Sign In</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form" id="frmLogin" action="login" method="post" commandName="usuario">
+                        <form:form role="form" id="frmLogin" action="login" method="post" commandName="usuario">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus required>
@@ -56,7 +51,7 @@ label.error {
                                 <label class="error"><c:out value="${msg}"/></label>
                                 </p>
                             </fieldset>
-                        </form>
+                        </form:form>
                     </div>
                 </div>
             </div>
