@@ -6,7 +6,7 @@
   <packaging>war</packaging>
   
   <properties>
-	<org.springframework.version>3.1.4.RELEASE</org.springframework.version>
+	<org.springframework.version>3.2.9.RELEASE</org.springframework.version>
 	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
@@ -63,7 +63,7 @@
 		<artifactId>commons-io</artifactId>
 		<version>2.4</version>
 	</dependency>
-	<!-- SEND GRID -->
+	<!-- Java Mail API -->
 	<dependency>
 	    <groupId>javax.activation</groupId>
 	    <artifactId>activation</artifactId>
@@ -126,6 +126,12 @@
 		<groupId>commons-codec</groupId>
 		<artifactId>commons-codec</artifactId>
 	<version>1.9</version>
-	</dependency>        
+	</dependency>      
+	<!-- Send Grid API -->       
+	<dependency>
+	<groupId>com.sendgrid</groupId>
+		<artifactId>sendgrid-java</artifactId>
+		<version>0.1.2</version>
+	</dependency>  
   </dependencies>
 </project>

@@ -5,30 +5,33 @@
 	id="WebApp_ID" version="2.5">
 	<display-name>pturismo</display-name>
 
-	<!-- <listener> -->
-	<!-- <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class> -->
-	<!-- </listener> -->
-
 	<servlet>
-		<servlet-name>spring</servlet-name>
+		<servlet-name>pturismo</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-		<init-param>
-			<param-name>contextConfigLocation</param-name>
-			<param-value>classpath:applicationContext.xml</param-value>
-		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-
+	
 	<servlet-mapping>
-		<servlet-name>spring</servlet-name>
+		<servlet-name>pturismo</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+
+	<context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/pturismo-servlet.xml</param-value>
+    </context-param>    
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
 
 	<session-config>
 		<session-timeout>60</session-timeout>
 	</session-config>
 
-	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
-	</welcome-file-list>
+
 </web-app>
