@@ -9,7 +9,7 @@
 <html class="no-js">
 <!--<![endif]-->
 <head>
-	<title>PTurismo</title>
+	<title>PTurismo - Registro</title>
 	<%@ include file="/WEB-INF/jsp/componentes/listcss.jsp" %>
 </head>
 
@@ -95,6 +95,7 @@
 			</p>
 		</form>
 	</section>
+	
 	<%@ include file="/WEB-INF/jsp/componentes/footer-links.jsp"%>
 	<%@ include file="/WEB-INF/jsp/componentes/footer.jsp"%>
 	<%@ include file="/WEB-INF/jsp/componentes/listjs.jsp"%>

@@ -37,6 +37,11 @@ public class InicioController {
 		return "registroA";
 	}
 	
+	@RequestMapping("irPrincipal") //dashboard agencia
+	public String irPrincipal() {
+		return "agencia/agenciaDashboard";
+	}
+	
 	@RequestMapping(value = "/toDashboard", method = RequestMethod.GET)
 	public String toDashboard(HttpServletRequest req, HttpSession session, Model model){
 		String path = "";
@@ -53,7 +58,7 @@ public class InicioController {
 		String path = "";
 		if(usuarioService.login(usu, req.getSession())) {
 			model.addAttribute("nameUser", req.getSession().getAttribute("email"));
-			path = "dashboard";
+			path = "agencia/agenciaDashboard";
 		}else{
 			model.addAttribute("msg", "El usuario no esta habilitado");
 			path = "login";
@@ -107,4 +112,11 @@ public class InicioController {
 		}
 		return path;
 	}
+	/*
+	 * Tipo de rol:
+		administrador
+		turista
+		Administrador Agencia
+		empleado
+	 * */
 }

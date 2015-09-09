@@ -14,4 +14,3 @@
 
 <script src="assets/js/jquery.carouFredSel-6.2.1-packed.js"></script>
 <script src="assets/js/jquery-ui-1.10.3.custom.min.js"></script>
-<script src="assets/js/main.js"></script> 

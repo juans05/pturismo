@@ -72,6 +72,12 @@ public class Paquete {
 	@Column(name = "fechacreacion", nullable = false)
 	private Timestamp fechaCreacion;
 
+	@Column(name = "fechafin", nullable = true)
+	private Timestamp fechaFin;
+
+	@Column(name = "destacado", nullable = false)
+	private Boolean destacado;
+
 	// ---------------------
 
 	@ManyToOne
@@ -242,6 +248,30 @@ public class Paquete {
 		this.publicado = publicado;
 	}
 
+	public Timestamp getFechaCreacion() {
+		return fechaCreacion;
+	}
+
+	public void setFechaCreacion(Timestamp fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
+
+	public Timestamp getFechaFin() {
+		return fechaFin;
+	}
+
+	public void setFechaFin(Timestamp fechaFin) {
+		this.fechaFin = fechaFin;
+	}
+
+	public Boolean getDestacado() {
+		return destacado;
+	}
+
+	public void setDestacado(Boolean destacado) {
+		this.destacado = destacado;
+	}
+
 	public Agencia getPaqueteAgencia() {
 		return paqueteAgencia;
 	}
@@ -306,14 +336,6 @@ public class Paquete {
 
 	public void setPaqueteReservas(Collection<Reserva> paqueteReservas) {
 		this.paqueteReservas = paqueteReservas;
-	}
-
-	public Timestamp getFechaCreacion() {
-		return fechaCreacion;
-	}
-
-	public void setFechaCreacion(Timestamp fechaCreacion) {
-		this.fechaCreacion = fechaCreacion;
 	}
 
 	public Timestamp getCreated_at() {

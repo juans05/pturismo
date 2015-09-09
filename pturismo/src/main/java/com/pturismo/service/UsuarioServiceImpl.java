@@ -32,14 +32,13 @@ public class UsuarioServiceImpl implements UsuarioService{
 			q.setParameter("email", usu.getEmail());
 	    	//String md5 = DigestUtils.md5Hex(usu.getPassword());
 			q.setParameter("password", usu.getPassword());
-			q.setParameter("estado", true);
+			q.setParameter("estado", "enabled");
 			
 			Usuario userResult = (Usuario) q.getSingleResult();
 			
 			session.setAttribute("email", userResult.getEmail());
 			session.setAttribute("idUsuario", userResult.getIdUsuario());
-			// es Valido
-			session.setAttribute("isValid", true);
+			session.setAttribute("rol", userResult.getRol());
 			resultado = true;
 		}catch(NoResultException ex){
 			resultado = false;

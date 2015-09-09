@@ -43,9 +43,6 @@ public class Agencia {
 	@Column(name = "email", length = 100, nullable = false)
 	private String email;
 
-	@Column(name = "idattach", nullable = true)
-	private Integer idAttach;
-
 	@Column(name = "cantpublicacion", nullable = false)
 	// default 4
 	private Integer cantPublicacion;
@@ -59,6 +56,9 @@ public class Agencia {
 	@Column(name = "estado", length = 8, nullable = false)
 	private String estado;
 
+	@Column(name = "imagen", nullable = true)
+	private Integer imagen;
+
 	// ---------------------------------------
 	@ManyToOne
 	@JoinColumn(name = "ubigeo_id", nullable = false)
@@ -67,12 +67,8 @@ public class Agencia {
 	@OneToMany(mappedBy = "paqueteAgencia")
 	private Collection<Paquete> agenciaPaquetes;
 
-	@OneToMany(mappedBy = "agencia")
-	private Collection<Persona> agenciaPersonas;
-
-	@OneToOne
-	@JoinColumn(name = "attachment_id", nullable = true)
-	private Attachment agenciaThumbnail;
+	@OneToMany(mappedBy = "usuarioAgencia")
+	private Collection<Usuario> agenciaUsuarios;
 
 	// aditional
 	@Column(name = "created_at", nullable = true)
@@ -144,14 +140,6 @@ public class Agencia {
 		this.email = email;
 	}
 
-	public Integer getIdAttach() {
-		return idAttach;
-	}
-
-	public void setIdAttach(Integer idAttach) {
-		this.idAttach = idAttach;
-	}
-
 	public Integer getCantPublicacion() {
 		return cantPublicacion;
 	}
@@ -184,6 +172,14 @@ public class Agencia {
 		this.estado = estado;
 	}
 
+	public Integer getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(Integer imagen) {
+		this.imagen = imagen;
+	}
+
 	public Ubigeo getAgenciaUbigeo() {
 		return agenciaUbigeo;
 	}
@@ -200,20 +196,12 @@ public class Agencia {
 		this.agenciaPaquetes = agenciaPaquetes;
 	}
 
-	public Collection<Persona> getAgenciaPersonas() {
-		return agenciaPersonas;
+	public Collection<Usuario> getAgenciaUsuarios() {
+		return agenciaUsuarios;
 	}
 
-	public void setAgenciaPersonas(Collection<Persona> agenciaPersonas) {
-		this.agenciaPersonas = agenciaPersonas;
-	}
-
-	public Attachment getAgenciaThumbnail() {
-		return agenciaThumbnail;
-	}
-
-	public void setAgenciaThumbnail(Attachment agenciaThumbnail) {
-		this.agenciaThumbnail = agenciaThumbnail;
+	public void setAgenciaUsuarios(Collection<Usuario> agenciaUsuarios) {
+		this.agenciaUsuarios = agenciaUsuarios;
 	}
 
 	public Timestamp getCreated_at() {
@@ -231,7 +219,5 @@ public class Agencia {
 	public void setUpdated_at(Timestamp updated_at) {
 		this.updated_at = updated_at;
 	}
-	
-	
 
 }

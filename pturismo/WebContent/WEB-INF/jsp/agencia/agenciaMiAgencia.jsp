@@ -14,7 +14,6 @@
 <jsp:include page="../componentes/listjs.jsp" />
 <link href="css/pturismo.css" rel="stylesheet">
 </head>
-
 <body>
 	<jsp:include page="../componentes/header.jsp" />
 
@@ -23,16 +22,11 @@
 
 			<div class="row-fluid">
 				<jsp:include page="../componentes/menuAgencia.jsp" />
-				<div class="container" style="margin-top: 70px; ">
-					<div class="row-fluid">
+				<div class="container" style="margin-top: 70px;">
+					<div class="">
+						<!-- row-fluid estaba antes -->
 						<div class="span12">
-							<p>Principal</p>
-						</div>
-					</div>
-
-					<div class="row-fluid">
-						<div class="span12">
-							<div class="member">
+							<div class="member" style="min-height: 180px;">
 								<div class="member-face">
 									<img src="assets/img/team/1.jpg" alt="">
 								</div>
@@ -60,19 +54,68 @@
 										</ul>
 
 									</div>
-									<p>Tiam nec diam non leo aliquet euismod vitae at diam.
-										Cras id sem vel velit dignissim vulputate id et sem. Curabitur
-										cursus volutpat sapien. Mauris in tellus erat. Maecenas
-										laoreet elementum vehicula. In pretium non sem sed imperdiet.
-										Integer pellentesque</p>
-									
+									<p>demo2</p>
+									<div class="span10" style="margin-left: 0px;">
+										<div class="span5 sumaryBodyFather">
+											<div class="span2 summaryBodySpan">
+												<span class="labelv2"> Nombre</span>
+											</div>
+											<div class="span3">
+												<span class="labelResultado">Cesar</span>
+											</div>
+										</div>
+										<div class="span5 sumaryBodyFather">
+											<div class="span2 summaryBodySpan">
+												<span class="labelv2"> Apellido</span>
+											</div>
+											<div class="span3">
+												<span class="labelResultado"> Oropeza</span>
+											</div>
+										</div>
+									</div>
+
+									<div class="span10" style="margin-left: 0px;">
+										<div class="span5 sumaryBodyFather">
+											<div class="span2 summaryBodySpan">
+												<span class="labelv2"> edad</span>
+											</div>
+											<div class="span3">
+												<span class="labelResultado"> 23</span>
+											</div>
+										</div>
+										<div class="span5 sumaryBodyFather">
+											<div class="span2 summaryBodySpan">
+												<span class="labelv2"> ciudad</span>
+											</div>
+											<div class="span3">
+												<span class="labelResultado"> Lima</span>
+											</div>
+										</div>
+									</div>
+
 								</div>
 							</div>
 						</div>
 					</div>
-					<br></br>
 
+					<!-- Tabs -->
+					<div class="row-fluid">
+						<div class="span12">
+							<section id="booking-tabs-wrapper"
+								class="detail-tabs inside-tabs"
+								style="background: none !important; min-height: 500px;">
+								<ul class="nav nav-tabs" id="booking-tabs">
+									<li class="active"><a href="#more-detail">Principal</a></li>
+									<li><a href="#guide">Fotos</a></li>
+									<li><a href="#Comments">Comentarios</a></li>
+								</ul>
+								<div class="tab-content" style="min-height: 500px;">
+									<jsp:include page="miAgencia/tabAgenciaVista.jsp" />
 
+								</div>
+							</section>
+						</div>
+					</div>
 				</div>
 			</div>
 

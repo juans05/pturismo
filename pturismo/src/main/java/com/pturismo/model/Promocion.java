@@ -29,8 +29,14 @@ public class Promocion {
 	@Column(name = "cantidad", nullable = false)
 	private Integer cantidad;
 
+	@Column(name = "cantidadpromo", nullable = false)
+	private Integer cantidadPromo;
+
 	@Column(name = "descuento", nullable = false)
 	private Double descuento;
+
+	@Column(name = "descripcion", length = 2000, nullable = false)
+	private String descripcion;
 
 	@Column(name = "estado", length = 8, nullable = false)
 	private String estado;
@@ -78,6 +84,14 @@ public class Promocion {
 		this.cantidad = cantidad;
 	}
 
+	public Integer getCantidadPromo() {
+		return cantidadPromo;
+	}
+
+	public void setCantidadPromo(Integer cantidadPromo) {
+		this.cantidadPromo = cantidadPromo;
+	}
+
 	public Double getDescuento() {
 		return descuento;
 	}
@@ -116,6 +130,14 @@ public class Promocion {
 
 	public void setUpdated_at(Timestamp updated_at) {
 		this.updated_at = updated_at;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 
 }

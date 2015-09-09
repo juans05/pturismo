@@ -417,7 +417,7 @@ body{
 	background:#fff;
 	max-width:400px;
 	margin:0 auto;
-	text-align:right;
+	/*text-align:right; comentado al 18/08/2015, PARA PONER EL BOTON Y TEXTO AL LADO IZQUIERDOD*/
 }
 .popups{
 	height:34px;
@@ -1874,7 +1874,7 @@ a.booknow{
 }
 
 #our-travels{
-	position:relative;
+	/* position:relative; comentado al 18/08/2015, PARA QUE FUNCIONE EL MENU IZQUIERDO*/ 
 	padding-top:20px;
 }
 .all-tours{

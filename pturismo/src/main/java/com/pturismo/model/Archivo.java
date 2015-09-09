@@ -13,30 +13,30 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "attachment")
-public class Attachment {
+public class Archivo {
 
 	@Id
 	@GeneratedValue
 	@Column(name = "id")
-	private Integer idAttachment;
+	private Integer idArchivo;
 
-	@Column(name = "filename", length = 200, nullable = false)
-	private String fileName;
+	@Column(name = "nombrearchivo", length = 200, nullable = false)
+	private String nombreArchivo;
 
-	@Column(name = "filetype", length = 40, nullable = false)
-	private String fileType;
+	@Column(name = "tipoarchivo", length = 40, nullable = false)
+	private String tipoarchivo;
 
 	@Column(name = "fechacreacion", nullable = false)
 	private Timestamp fechaCreacion;
 
 	@Column(name = "identity", nullable = false)
-	private Integer idEntity;
+	private Integer idEntidad;
 
-	@Column(name = "entitytype", length = 30, nullable = false)
-	private String entityType;
+	@Column(name = "tipoentidad", length = 30, nullable = false)
+	private String tipoEntidad;
 
-	@Column(name = "size", length = 10, nullable = false)
-	private Long size;
+	@Column(name = "tamaño", length = 10, nullable = false)
+	private Long tamaño;
 
 	@Column(name = "url", length = 255, nullable = false)
 	private String url;
@@ -52,40 +52,34 @@ public class Attachment {
 	@JoinColumn(name = "usuario_id", nullable = false)
 	private Usuario attachUsuario;
 
-	@OneToOne(mappedBy = "personaThumbnail")
-	private Persona attachPersona;
-
-	@OneToOne(mappedBy = "agenciaThumbnail")
-	private Agencia attachAgencia;
-
 	// aditional
 	@Column(name = "created_at", nullable = true)
 	private Timestamp created_at;
 	@Column(name = "updated_at", nullable = true)
 	private Timestamp updated_at;
 
-	public Integer getIdAttachment() {
-		return idAttachment;
+	public Integer getIdArchivo() {
+		return idArchivo;
 	}
 
-	public void setIdAttachment(Integer idAttachment) {
-		this.idAttachment = idAttachment;
+	public void setIdArchivo(Integer idArchivo) {
+		this.idArchivo = idArchivo;
 	}
 
-	public String getFileName() {
-		return fileName;
+	public String getNombreArchivo() {
+		return nombreArchivo;
 	}
 
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
+	public void setNombreArchivo(String nombreArchivo) {
+		this.nombreArchivo = nombreArchivo;
 	}
 
-	public String getFileType() {
-		return fileType;
+	public String getTipoarchivo() {
+		return tipoarchivo;
 	}
 
-	public void setFileType(String fileType) {
-		this.fileType = fileType;
+	public void setTipoarchivo(String tipoarchivo) {
+		this.tipoarchivo = tipoarchivo;
 	}
 
 	public Timestamp getFechaCreacion() {
@@ -96,28 +90,28 @@ public class Attachment {
 		this.fechaCreacion = fechaCreacion;
 	}
 
-	public Integer getIdEntity() {
-		return idEntity;
+	public Integer getIdEntidad() {
+		return idEntidad;
 	}
 
-	public void setIdEntity(Integer idEntity) {
-		this.idEntity = idEntity;
+	public void setIdEntidad(Integer idEntidad) {
+		this.idEntidad = idEntidad;
 	}
 
-	public String getEntityType() {
-		return entityType;
+	public String getTipoEntidad() {
+		return tipoEntidad;
 	}
 
-	public void setEntityType(String entityType) {
-		this.entityType = entityType;
+	public void setTipoEntidad(String tipoEntidad) {
+		this.tipoEntidad = tipoEntidad;
 	}
 
-	public Long getSize() {
-		return size;
+	public Long getTamaño() {
+		return tamaño;
 	}
 
-	public void setSize(Long size) {
-		this.size = size;
+	public void setTamaño(Long tamaño) {
+		this.tamaño = tamaño;
 	}
 
 	public String getUrl() {
@@ -150,22 +144,6 @@ public class Attachment {
 
 	public void setAttachUsuario(Usuario attachUsuario) {
 		this.attachUsuario = attachUsuario;
-	}
-
-	public Persona getAttachPersona() {
-		return attachPersona;
-	}
-
-	public void setAttachPersona(Persona attachPersona) {
-		this.attachPersona = attachPersona;
-	}
-
-	public Agencia getAttachAgencia() {
-		return attachAgencia;
-	}
-
-	public void setAttachAgencia(Agencia attachAgencia) {
-		this.attachAgencia = attachAgencia;
 	}
 
 	public Timestamp getCreated_at() {

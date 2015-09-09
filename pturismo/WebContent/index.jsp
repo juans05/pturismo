@@ -28,8 +28,7 @@
 
 	<div class="BG-map">
 		<div class="BG-map-inner">
-			<%@ include
-				file="/WEB-INF/jsp/componentes/principal/destinations.jsp"%>
+			<%@ include file="/WEB-INF/jsp/componentes/principal/destinations.jsp"%>
 			<div class="clearfix"></div>
 			<%@ include file="/WEB-INF/jsp/componentes/principal/tours.jsp"%>
 		</div>

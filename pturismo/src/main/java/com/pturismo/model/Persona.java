@@ -9,7 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -29,9 +28,6 @@ public class Persona {
 	@Column(name = "apellido", length = 50, nullable = true)
 	private String apellido;
 
-	// @Column(name = "apellidomaterno", length = 90, nullable = true)
-	// private String apellidoMaterno;
-
 	@Column(name = "tipoidentidad", length = 20, nullable = true)
 	private String tipoIdentidad;
 
@@ -50,26 +46,13 @@ public class Persona {
 	@Column(name = "pais", length = 20, nullable = true)
 	private String pais;
 
-	@Column(name = "rol", length = 45, nullable = true)
-	private String rol;
-
-	// @Column(name = "dni", length = 8, nullable = true)
-	// private Integer dni;
+	@Column(name = "imagen")
+	private Integer imagen;
 
 	// -----------------------------------------------
-	// falta arreglar el login
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "usuario_id", nullable = false)
 	private Usuario usuario;
-
-	// -----------------------------------------------
-	@ManyToOne
-	@JoinColumn(name = "agencia_id", nullable = true)
-	private Agencia agencia;
-
-	@OneToOne
-	@JoinColumn(name = "attachment_id", nullable = true)
-	private Attachment personaThumbnail;
 
 	// aditional
 	@Column(name = "created_at", nullable = true)
@@ -93,36 +76,12 @@ public class Persona {
 		this.nombre = nombre;
 	}
 
-	// public String getApellidoMaterno() {
-	// return apellidoMaterno;
-	// }
-	//
-	// public void setApellidoMaterno(String apellidoMaterno) {
-	// this.apellidoMaterno = apellidoMaterno;
-	// }
-
 	public String getApellido() {
 		return apellido;
 	}
 
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
-	}
-
-	public String getTelefono() {
-		return telefono;
-	}
-
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
-	}
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
 	}
 
 	public String getTipoIdentidad() {
@@ -139,6 +98,14 @@ public class Persona {
 
 	public void setNroIdentidad(String nroIdentidad) {
 		this.nroIdentidad = nroIdentidad;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
 	}
 
 	public String getCelular() {
@@ -165,28 +132,20 @@ public class Persona {
 		this.pais = pais;
 	}
 
-	public String getRol() {
-		return rol;
+	public Integer getImagen() {
+		return imagen;
 	}
 
-	public void setRol(String rol) {
-		this.rol = rol;
+	public void setImagen(Integer imagen) {
+		this.imagen = imagen;
 	}
 
-	public Agencia getAgencia() {
-		return agencia;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setAgencia(Agencia agencia) {
-		this.agencia = agencia;
-	}
-
-	public Attachment getPersonaThumbnail() {
-		return personaThumbnail;
-	}
-
-	public void setPersonaThumbnail(Attachment personaThumbnail) {
-		this.personaThumbnail = personaThumbnail;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	public Timestamp getCreated_at() {
@@ -204,13 +163,5 @@ public class Persona {
 	public void setUpdated_at(Timestamp updated_at) {
 		this.updated_at = updated_at;
 	}
-
-	// public Integer getDni() {
-	// return dni;
-	// }
-	//
-	// public void setDni(Integer dni) {
-	// this.dni = dni;
-	// }
 
 }

@@ -7,6 +7,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -26,11 +28,14 @@ public class Usuario {
 	@Column(name = "password", length = 50, nullable = false)
 	private String password;
 
-	@Column(name = "fechacreacion", nullable = true)
+	@Column(name = "fechacreacion", nullable = false)
 	private Timestamp fechaCreacion;
 
-	@Column(name = "estado", length = 8, nullable = true)
+	@Column(name = "estado", length = 8, nullable = false)
 	private String estado;
+
+	@Column(name = "rol", length = 30, nullable = false)
+	private String rol;
 
 	// ---------------------------------
 	@OneToOne(mappedBy = "usuario")
@@ -47,10 +52,14 @@ public class Usuario {
 	private Collection<Paquete> usuarioPaquetes;
 
 	@OneToMany(mappedBy = "attachUsuario")
-	private Collection<Attachment> usuarioAttachments;
+	private Collection<Archivo> usuarioAttachments;
 
 	@OneToMany(mappedBy = "comentarioUsuario")
 	private Collection<Comentario> usuarioComentarios;
+
+	@ManyToOne
+	@JoinColumn(name = "agencia_id", nullable = false)
+	private Agencia usuarioAgencia; // Si es Turista agencia_id=0
 
 	// aditional
 	@Column(name = "created_at", nullable = true)
@@ -131,11 +140,11 @@ public class Usuario {
 		this.usuarioPaquetes = usuarioPaquetes;
 	}
 
-	public Collection<Attachment> getUsuarioAttachments() {
+	public Collection<Archivo> getUsuarioAttachments() {
 		return usuarioAttachments;
 	}
 
-	public void setUsuarioAttachments(Collection<Attachment> usuarioAttachments) {
+	public void setUsuarioAttachments(Collection<Archivo> usuarioAttachments) {
 		this.usuarioAttachments = usuarioAttachments;
 	}
 
@@ -145,6 +154,14 @@ public class Usuario {
 
 	public void setUsuarioComentarios(Collection<Comentario> usuarioComentarios) {
 		this.usuarioComentarios = usuarioComentarios;
+	}
+
+	public Agencia getUsuarioAgencia() {
+		return usuarioAgencia;
+	}
+
+	public void setUsuarioAgencia(Agencia usuarioAgencia) {
+		this.usuarioAgencia = usuarioAgencia;
 	}
 
 	public Timestamp getCreated_at() {
@@ -161,6 +178,14 @@ public class Usuario {
 
 	public void setUpdated_at(Timestamp updated_at) {
 		this.updated_at = updated_at;
+	}
+
+	public String getRol() {
+		return rol;
+	}
+
+	public void setRol(String rol) {
+		this.rol = rol;
 	}
 
 }

@@ -1,0 +1,89 @@
+/* MENU - AGENCIA */
+.fixed-menu-agencia {
+	margin-left: 30px;
+	margin-top: 70px;
+}
+
+.mainNavItem {
+	color: #333333;
+	text-decoration: none;
+}
+
+.mainNavItem:hover {
+	color: #333333;
+	text-decoration: none;
+}
+/* ----------------------- */
+/* --------SUMMARY-------- */
+	/* sumary Agencia, Paquete, Reserva, Lugares turisticos */
+.summaryBodySpan {
+	margin-right: 10px;
+	min-width: 140px;
+}
+
+.sumaryBodyFather {
+	border-bottom: 1px solid #D3D8DE;
+	min-width: 300px;
+}
+
+.labelv2 {
+	color: #788A96;
+	font-weight: bold;
+	font-size: 12px;
+	display: inline-block;
+	line-height: 30px;
+}
+
+.labelResultado {
+	color: #666;
+	font-size: 13px;
+	line-height: 30px;
+}
+
+/* ----------------------- */
+
+/* VENTANA PRINCIPAL */
+.sectionHeader {
+	height: 38px;
+	border: 1px solid #4B5F6C;
+	border-radius: 4px 4px 0px 0px;
+	background-image: linear-gradient(to bottom, #586F80 0%, #394853 100%);
+	background-color: #586F80;
+}
+
+.summaryHeader {
+	position: relative;
+}
+
+.sectionHeaderLeft {
+	padding-left: 10px;
+	float: left;
+}
+
+#summaryPane .imagePadding,.summaryPane .imagePadding {
+	padding-left: 160px;
+}
+
+.summaryHeaderRight {
+	border-radius: 0px 4px 0px 0px;
+	background-color: #FFF;
+	color: #7B8A93;
+}
+
+.sectionHeaderRight {
+	float: right;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.summaryBody {
+	min-height: 100px;
+	overflow: hidden;
+	border-radius: 0px 0px 4px 4px;
+	box-shadow: 0px 2px 3px #C6C8C9;
+	background-image: linear-gradient(to bottom, #FAFBFC 0%, #E7EAF0 100%);
+}
+
+.sectionBody {
+	padding: 10px;
+}

@@ -28,12 +28,30 @@ public class Reserva {
 	@Column(name = "cantpasajeroninio", nullable = true)
 	private Integer cantPasajeroNinio;
 
+	@Column(name = "cantidadpaquete", nullable = false)
+	private Integer cantidadPaquete;
+
 	@Column(name = "estado", length = 20, nullable = false)
 	// reservado - pagado - anulado - eliminado
 	private String estado;
 
 	@Column(name = "fechacreacion", nullable = false)
 	private Timestamp fechaCreacion;
+
+	@Column(name = "precioxpaquete", nullable = false)
+	private Double precioXPaquete;
+
+	@Column(name = "precio", nullable = false)
+	private Double precio; // Precio de la cantidad*paquete
+
+	@Column(name = "dscto", nullable = true)
+	private Double dscto;
+
+	@Column(name = "precioxdscto", nullable = true)
+	private Double precioXDscto;
+
+	@Column(name = "preciototal", nullable = false)
+	private Double precioTotal;
 
 	// ----------------------------------------------------
 
@@ -83,12 +101,68 @@ public class Reserva {
 		this.cantPasajeroNinio = cantPasajeroNinio;
 	}
 
+	public Integer getCantidadPaquete() {
+		return cantidadPaquete;
+	}
+
+	public void setCantidadPaquete(Integer cantidadPaquete) {
+		this.cantidadPaquete = cantidadPaquete;
+	}
+
 	public String getEstado() {
 		return estado;
 	}
 
 	public void setEstado(String estado) {
 		this.estado = estado;
+	}
+
+	public Timestamp getFechaCreacion() {
+		return fechaCreacion;
+	}
+
+	public void setFechaCreacion(Timestamp fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
+
+	public Double getPrecioXPaquete() {
+		return precioXPaquete;
+	}
+
+	public void setPrecioXPaquete(Double precioXPaquete) {
+		this.precioXPaquete = precioXPaquete;
+	}
+
+	public Double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(Double precio) {
+		this.precio = precio;
+	}
+
+	public Double getDscto() {
+		return dscto;
+	}
+
+	public void setDscto(Double dscto) {
+		this.dscto = dscto;
+	}
+
+	public Double getPrecioXDscto() {
+		return precioXDscto;
+	}
+
+	public void setPrecioXDscto(Double precioXDscto) {
+		this.precioXDscto = precioXDscto;
+	}
+
+	public Double getPrecioTotal() {
+		return precioTotal;
+	}
+
+	public void setPrecioTotal(Double precioTotal) {
+		this.precioTotal = precioTotal;
 	}
 
 	public Paquete getReservaPaquete() {
@@ -105,14 +179,6 @@ public class Reserva {
 
 	public void setReservaUsuario(Usuario reservaUsuario) {
 		this.reservaUsuario = reservaUsuario;
-	}
-
-	public Timestamp getFechaCreacion() {
-		return fechaCreacion;
-	}
-
-	public void setFechaCreacion(Timestamp fechaCreacion) {
-		this.fechaCreacion = fechaCreacion;
 	}
 
 	public Timestamp getCreated_at() {

@@ -22,23 +22,26 @@ public class Comentario {
 	@Column(name = "comentario", length = 2000, nullable = false)
 	private String comentario;
 
-	@Column(name = "fecha", nullable = false)
-	private Timestamp fecha;
+	@Column(name = "fechacreacion", nullable = false)
+	private Timestamp fechaCreacion;
 
-	@Column(name = "identity", nullable = false)
-	private Integer idEntity;
+	@Column(name = "identidad", nullable = false)
+	private Integer idEntidad;
 
-	@Column(name = "entitytype", length = 30, nullable = false)
-	private String entityType;
+	@Column(name = "tipoentidad", length = 30, nullable = false)
+	private String tipoEntidad;
 
-	@Column(name = "reply", nullable = true)
-	private Integer reply;
+	@Column(name = "respuesta", nullable = true)
+	private Integer respuesta;
 
 	@Column(name = "visibilidad", length = 30, nullable = false)
 	private String visibilidad;
 
 	@Column(name = "estado", length = 8, nullable = false)
 	private String estado;
+
+	@Column(name = "valoracion", nullable = true)
+	private Integer valoracion;
 
 	// ----------------------------------------
 	@ManyToOne
@@ -67,36 +70,36 @@ public class Comentario {
 		this.comentario = comentario;
 	}
 
-	public Timestamp getFecha() {
-		return fecha;
+	public Timestamp getFechaCreacion() {
+		return fechaCreacion;
 	}
 
-	public void setFecha(Timestamp fecha) {
-		this.fecha = fecha;
+	public void setFechaCreacion(Timestamp fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
 	}
 
-	public Integer getIdEntity() {
-		return idEntity;
+	public Integer getIdEntidad() {
+		return idEntidad;
 	}
 
-	public void setIdEntity(Integer idEntity) {
-		this.idEntity = idEntity;
+	public void setIdEntidad(Integer idEntidad) {
+		this.idEntidad = idEntidad;
 	}
 
-	public String getEntityType() {
-		return entityType;
+	public String getTipoEntidad() {
+		return tipoEntidad;
 	}
 
-	public void setEntityType(String entityType) {
-		this.entityType = entityType;
+	public void setTipoEntidad(String tipoEntidad) {
+		this.tipoEntidad = tipoEntidad;
 	}
 
-	public Integer getReply() {
-		return reply;
+	public Integer getRespuesta() {
+		return respuesta;
 	}
 
-	public void setReply(Integer reply) {
-		this.reply = reply;
+	public void setRespuesta(Integer respuesta) {
+		this.respuesta = respuesta;
 	}
 
 	public String getVisibilidad() {
@@ -113,6 +116,14 @@ public class Comentario {
 
 	public void setEstado(String estado) {
 		this.estado = estado;
+	}
+
+	public Integer getValoracion() {
+		return valoracion;
+	}
+
+	public void setValoracion(Integer valoracion) {
+		this.valoracion = valoracion;
 	}
 
 	public Usuario getComentarioUsuario() {
